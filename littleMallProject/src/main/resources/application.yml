@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /littlemall
+    context-path: /admin
   port: 80
 
 spring:
