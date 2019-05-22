@@ -3,6 +3,8 @@ package com.xkazxx.springboot.springbootproject.mapper;
 import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface Cskaoyan_mall_userMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,4 +20,6 @@ public interface Cskaoyan_mall_userMapper {
 
     Cskaoyan_mall_user login(@Param("username") String username,
                              @Param("password") String password);
+
+    List<Cskaoyan_mall_user> getUserList(Integer page, Integer limit);
 }

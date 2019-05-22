@@ -23,12 +23,19 @@
     id, username, password, gender, birthday, last_login_time, last_login_ip, user_level, 
     nickname, mobile, avatar, weixin_openid, status, add_time, update_time, deleted
   </sql>
-
+  <!--登录-->
   <select id="login" resultType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user">
     select <include refid="Base_Column_List"/>
     from cskaoyan_mall_user
    where username = '${username}' and password = '${password}'
   </select>
+<!--分页显示-->
+  <select id="getUserList" resultType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user">
+    select id, username, gender, birthday,  user_level as userLevel, mobile, status
+    from cskaoyan_mall_user
+  </select>
+
+
 
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

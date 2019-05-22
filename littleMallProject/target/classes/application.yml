@@ -10,3 +10,10 @@ spring:
     username: root
     password: 147963
     type: com.alibaba.druid.pool.DruidDataSource
+  pagehelper:
+    dialect: com.github.pagehelper.dialect.helper.MySqlDialect
+    offsetAsPageNum: true
+    rowBoundsWithCount: true
+    returnPageInfo: true
+    reasonable: true
+    supportMethodsArguments: true
