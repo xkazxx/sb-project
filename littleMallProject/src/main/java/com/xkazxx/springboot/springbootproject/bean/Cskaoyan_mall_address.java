@@ -3,6 +3,7 @@ package com.xkazxx.springboot.springbootproject.bean;
 import java.util.Date;
 
 public class Cskaoyan_mall_address {
+
     private Integer id;
 
     private String name;
@@ -10,10 +11,16 @@ public class Cskaoyan_mall_address {
     private Integer userId;
 
     private Integer provinceId;
+    //新增省
+    private String province;
 
     private Integer cityId;
+    //新增市
+    private String city;
 
     private Integer areaId;
+    //新增区
+    private String area;
 
     private String address;
 
@@ -26,6 +33,39 @@ public class Cskaoyan_mall_address {
     private Date updateTime;
 
     private Boolean deleted;
+
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public Boolean getDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(Boolean aDefault) {
+        isDefault = aDefault;
+    }
 
     public Integer getId() {
         return id;

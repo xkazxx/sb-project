@@ -19,6 +19,25 @@
     id, user_id, username, mobile, feed_type, content, status, has_picture, pic_urls, 
     add_time, update_time, deleted
   </sql>
+
+  <select id="getFeedbackList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_feedback
+    <where>
+      <if test="id != null and id != '' ">
+        id like concat ("%",'${id}',"%")
+      </if>
+      <if test="username != null and username != '' ">
+        and username like concat ("%",'${username}',"%")
+      </if>
+    </where>
+  </select>
+
+
+
+
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

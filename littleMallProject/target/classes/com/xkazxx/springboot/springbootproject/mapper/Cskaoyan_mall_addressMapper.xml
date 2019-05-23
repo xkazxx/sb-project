@@ -19,8 +19,48 @@
     id, name, user_id, province_id, city_id, area_id, address, mobile, is_default, add_time, 
     update_time, deleted
   </sql>
+
+  <!--分页显示-->
+  <select id="getAddressList" resultMap="AddressMap">
+
+    select  a.id aid, a.name aname, user_id ,a.address aaddress, mobile,
+    province_id, city_id, area_id, is_default, add_time,update_time, deleted,
+    (select name from cskaoyan_mall_region where code = province_id) province,
+    (select name from cskaoyan_mall_region where code = city_id) city,
+    (select name from cskaoyan_mall_region where code = area_id) area
+    from cskaoyan_mall_address a
+    left join cskaoyan_mall_region r on a.id = r.id
+    <where>
+      <if test="name != null and name != '' ">
+        a.name like concat ("%",'${name}',"%")
+      </if>
+      <if test="userId != null and userId != '' ">
+        and user_id like concat ("%",'${userId}',"%")
+      </if>
+    </where>
+  </select>
+  <resultMap id="AddressMap" type="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_address">
+    <id column="aid" jdbcType="INTEGER" property="id" />
+    <result column="aname" jdbcType="VARCHAR" property="name" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="province_id" jdbcType="INTEGER" property="provinceId" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="area_id" jdbcType="INTEGER" property="areaId" />
+    <result column="aaddress" jdbcType="VARCHAR" property="address" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="is_default" jdbcType="BIT" property="isDefault" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="area" jdbcType="BIT" property="area" />
+    <result column="province" jdbcType="BIT" property="province" />
+    <result column="city" jdbcType="BIT" property="city" />
+  </resultMap>
+
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_address
     where id = #{id,jdbcType=INTEGER}

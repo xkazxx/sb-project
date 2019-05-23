@@ -33,6 +33,14 @@
   <select id="getUserList" resultType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user">
     select id, username, gender, birthday,  user_level as userLevel, mobile, status
     from cskaoyan_mall_user
+    <where>
+      <if test="username != null and username != '' ">
+        username like concat ("%",'${username}',"%")
+      </if>
+      <if test="mobile != null and mobile != '' ">
+        and mobile like concat ("%",'${mobile}',"%")
+      </if>
+    </where>
   </select>
 
 

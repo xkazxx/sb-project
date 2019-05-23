@@ -21,5 +21,6 @@ public interface Cskaoyan_mall_userMapper {
     Cskaoyan_mall_user login(@Param("username") String username,
                              @Param("password") String password);
 
-    List<Cskaoyan_mall_user> getUserList(Integer page, Integer limit);
+    List<Cskaoyan_mall_user> getUserList(@Param("page") Integer page, @Param("limit") Integer limit,
+                                         @Param("username") String username, @Param("mobile") String mobile);
 }

@@ -3,6 +3,7 @@ package com.xkazxx.springboot.springbootproject.bean;
 import java.util.Date;
 
 public class Cskaoyan_mall_user {
+
     private Integer id;
 
     private String username;
