@@ -34,17 +34,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map getUserList(Integer page, Integer limit, String username, String mobile) {
-        Map map = new HashMap();
-        Map data = new HashMap();
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_user> pageInfo =
                 new PageInfo<>(cskaoyanMallUserMapper.getUserList(page,limit,username,mobile));
-        data.put("total",pageInfo.getTotal());
-        data.put("items",pageInfo.getList());
-        map.put("data",data);
-        map.put("errmsg","成功");
-        map.put("errno", 0);
-        return map;
+        return getResultMap(pageInfo);
     }
 
     @Override
@@ -68,67 +61,47 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map getCollectList(Integer page, Integer limit, Integer userId, Integer valueId) {
-        Map map = new HashMap();
-        Map data = new HashMap();
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_collect> pageInfo =
                 new PageInfo<>(cskaoyanMallCollectMapper.getCollectList(page,limit,userId,valueId));
-        data.put("items",pageInfo.getList());
-        data.put("total",pageInfo.getTotal());
-
-        map.put("data",data);
-        map.put("errmsg","成功");
-        map.put("errno", 0);
-        return map;
+        return getResultMap(pageInfo);
     }
 
     @Override
     public Map getFootprintList(Integer page, Integer limit, Integer userId, Integer goodsId) {
-        Map map = new HashMap();
-        Map data = new HashMap();
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_footprint> pageInfo =
                 new PageInfo<>(cskaoyanMallFootprintMapper.getFootprintList(page,limit,userId,goodsId));
-        data.put("items",pageInfo.getList());
-        data.put("total",pageInfo.getTotal());
-
-        map.put("data",data);
-        map.put("errmsg","成功");
-        map.put("errno", 0);
-        return map;
+        return getResultMap(pageInfo);
     }
 
     @Override
     public Map getSearchHistoryList(Integer page, Integer limit, Integer userId, String keyword) {
-        Map map = new HashMap();
-        Map data = new HashMap();
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_search_history> pageInfo =
                 new PageInfo<>(cskaoyanMallSearchHistoryMapper.getSearchHistoryList(page,limit,userId,keyword));
-        data.put("items",pageInfo.getList());
-        data.put("total",pageInfo.getTotal());
-
-        map.put("data",data);
-        map.put("errmsg","成功");
-        map.put("errno", 0);
-        return map;
+        return getResultMap(pageInfo);
     }
 
     @Override
     public Map getFeedbackList(Integer page, Integer limit, Integer id, String username) {
-        Map map = new HashMap();
-        Map data = new HashMap();
+
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_feedback> pageInfo =
                 new PageInfo<>(cskaoyanMallFeedbackMapper.getFeedbackList(page,limit,id,username));
+        return getResultMap(pageInfo);
+
+    }
+
+    public Map getResultMap(PageInfo pageInfo){
+        Map map = new HashMap();
+        Map data = new HashMap();
         data.put("items",pageInfo.getList());
         data.put("total",pageInfo.getTotal());
-
         map.put("data",data);
         map.put("errmsg","成功");
         map.put("errno", 0);
         return map;
     }
-
 
 }
