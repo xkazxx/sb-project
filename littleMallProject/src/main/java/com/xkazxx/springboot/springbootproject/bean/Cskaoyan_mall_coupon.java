@@ -3,7 +3,7 @@ package com.xkazxx.springboot.springbootproject.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Cskaoyan_mall_cuppon {
+public class Cskaoyan_mall_coupon {
     private Integer id;
 
     private String name;

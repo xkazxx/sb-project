@@ -18,6 +18,23 @@
     id, user_id, coupon_id, status, used_time, start_time, end_time, order_id, add_time, 
     update_time, deleted
   </sql>
+
+  <select id="getCouponUserList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_coupon_user
+    <where>
+      <if test="userId != null and userId != '' ">
+        user_id like concat ("%",${userId},"%")
+      </if>
+      <if test="couponId != null and couponId != '' ">
+        and coupon_id like concat ("%",${couponId},"%")
+      </if>
+      <if test="status != null and status != '' ">
+        and status = ${status}
+      </if>
+    </where>
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
