@@ -13,19 +13,52 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
     <result column="role_ids" jdbcType="VARCHAR" property="roleIds" />
   </resultMap>
+  <resultMap id="StorageResultMap" type="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_storage">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="size" jdbcType="TIMESTAMP" property="size" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
   <sql id="Base_Column_List">
     id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time, 
     deleted, role_ids
   </sql>
+  <sql id="Storage_Column_List">
+    id, name, key,type, size,url, add_time, update_time,
+    deleted
+  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_admin
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from cskaoyan_mall_admin
-    where id = #{id,jdbcType=INTEGER}
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cskaoyan_mall_admin
+  </select>
+  <select id="selectAdminByAdminName" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cskaoyan_mall_admin
+    where name = #{name,jdbcType=INTEGER}
+  </select>
+  <select id="insertStorage" parameterType="java.lang.Integer" resultMap="StorageResultMap">
+    select
+    <include refid="Storage_Column_List" />
+    from cskaoyan_mall_storage
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cskaoyan_mall_admin where id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
   </delete>
   <insert id="insert" parameterType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_admin">
     insert into cskaoyan_mall_admin (id, username, password, 
