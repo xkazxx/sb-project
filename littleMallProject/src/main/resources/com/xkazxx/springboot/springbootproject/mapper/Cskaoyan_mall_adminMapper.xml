@@ -17,6 +17,14 @@
     id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time, 
     deleted, role_ids
   </sql>
+
+  <select id="getAdminByAdminname" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_admin
+    where username = #{username}
+  </select>
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

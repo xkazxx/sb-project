@@ -1,6 +1,7 @@
 package com.xkazxx.springboot.springbootproject.mapper;
 
 import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_admin;
+import org.apache.ibatis.annotations.Param;
 
 public interface Cskaoyan_mall_adminMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +15,6 @@ public interface Cskaoyan_mall_adminMapper {
     int updateByPrimaryKeySelective(Cskaoyan_mall_admin record);
 
     int updateByPrimaryKey(Cskaoyan_mall_admin record);
+
+    Cskaoyan_mall_admin getAdminByAdminname(@Param("username") String username);
 }

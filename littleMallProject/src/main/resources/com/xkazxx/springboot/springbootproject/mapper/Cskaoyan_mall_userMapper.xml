@@ -27,7 +27,14 @@
   <select id="login" resultType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user">
     select <include refid="Base_Column_List"/>
     from cskaoyan_mall_user
-   where username = '${username}' and password = '${password}'
+    <where>
+      <if test="username != null">
+        username = '${username}'
+      </if>
+      <if test="password != null">
+        and password = '${password}'
+      </if>
+    </where>
   </select>
 <!--分页显示-->
   <select id="getUserList" resultType="com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_user">

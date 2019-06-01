@@ -1,11 +1,14 @@
 package com.xkazxx.springboot.springbootproject.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.xkazxx.springboot.springbootproject.util.GetRequestJsonUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,17 +18,20 @@ import java.util.Map;
 @RequestMapping("/auth")
 public class HomeController {
 
-
-    @RequestMapping(value = "/login",method = {RequestMethod.POST,RequestMethod.OPTIONS})
+    @RequestMapping(value = "/login",method = {RequestMethod.POST,RequestMethod.OPTIONS,RequestMethod.GET})
     @ResponseBody
-    public Map testProject( String username, String password) {
+    public Map testProject(HttpServletRequest request) throws IOException {
+       /* JSONObject jsonObject = GetRequestJsonUtils.getRequestJsonObject(request);
+        String username = jsonObject.getString("username");
+        String password = jsonObject.getString("password");
 
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        SecurityUtils.getSubject().login(token);*/
         Map map = new HashMap<>();
         map.put("errno",0);
         map.put("data","success");
         map.put("errmsg","成功");
         return map;
-
     }
 
     @RequestMapping(value = "/info",method = {RequestMethod.GET,RequestMethod.OPTIONS})

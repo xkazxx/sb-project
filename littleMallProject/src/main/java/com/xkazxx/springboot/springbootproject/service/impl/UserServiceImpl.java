@@ -18,6 +18,9 @@ public class UserServiceImpl implements UserService {
     Cskaoyan_mall_userMapper cskaoyanMallUserMapper;
 
     @Autowired
+    Cskaoyan_mall_adminMapper cskaoyanMallAdminMapper;
+
+    @Autowired
     Cskaoyan_mall_addressMapper cskaoyanMallAddressMapper;
 
     @Autowired
@@ -91,6 +94,12 @@ public class UserServiceImpl implements UserService {
                 new PageInfo<>(cskaoyanMallFeedbackMapper.getFeedbackList(page,limit,id,username));
         return getResultMap(pageInfo);
 
+    }
+
+    @Override
+    public Cskaoyan_mall_admin getAdminByAdminname(String username) {
+        Cskaoyan_mall_admin adminByAdminname = cskaoyanMallAdminMapper.getAdminByAdminname(username);
+        return adminByAdminname;
     }
 
     public Map getResultMap(PageInfo pageInfo){

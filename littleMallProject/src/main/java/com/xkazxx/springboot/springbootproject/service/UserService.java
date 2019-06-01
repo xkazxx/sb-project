@@ -1,5 +1,7 @@
 package com.xkazxx.springboot.springbootproject.service;
 
+import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_admin;
+
 import java.util.Map;
 
 public interface UserService {
@@ -15,4 +17,6 @@ public interface UserService {
 
 
     Map getFeedbackList(Integer page, Integer limit, Integer id, String username);
+
+    Cskaoyan_mall_admin getAdminByAdminname(String username);
 }
