@@ -1,25 +1,28 @@
 package com.xkazxx.springboot.springbootproject.bean;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
+@Component
 public class Cskaoyan_mall_ad {
     private Integer id;
 
-    private String name;
+    private String name;//4
 
-    private String link;
+    private String link;//4
 
-    private String url;
+    private String url;//4
 
-    private Byte position;
+    private Byte position;//4
 
-    private String content;
+    private String content;//4
 
     private Date startTime;
 
     private Date endTime;
 
-    private Boolean enabled;
+    private Boolean enabled;//4
 
     private Date addTime;
 

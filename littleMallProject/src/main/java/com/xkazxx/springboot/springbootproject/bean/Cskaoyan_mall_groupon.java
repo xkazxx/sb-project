@@ -5,13 +5,13 @@ import java.util.Date;
 public class Cskaoyan_mall_groupon {
     private Integer id;
 
-    private Integer orderId;
+    private Integer orderId;//
 
     private Integer grouponId;
 
     private Integer rulesId;
 
-    private Integer userId;
+    private Integer userId;//参与人数
 
     private Integer creatorUserId;
 

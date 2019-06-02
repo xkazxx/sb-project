@@ -23,4 +23,5 @@ public interface Cskaoyan_mall_couponMapper {
                                              @Param("status") Short status);
 
 
+    Cskaoyan_mall_coupon selectCouponLastone();
 }

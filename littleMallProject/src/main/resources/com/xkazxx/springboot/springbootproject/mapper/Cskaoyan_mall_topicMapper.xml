@@ -9,7 +9,8 @@
     <result column="read_count" jdbcType="VARCHAR" property="readCount" />
     <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
     <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
-    <result column="goods" jdbcType="VARCHAR" property="goods" />
+    <result column="goods"  property="goods"
+    typeHandler="com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler"/>
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
@@ -24,6 +25,31 @@
   <sql id="Blob_Column_List">
     content
   </sql>
+
+  <select id="getTopicList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_topic
+    <where>
+      <if test="title != null">
+        title like concat("%", #{title}, "%")
+      </if>
+      <if test="subtitle != null">
+        and subtitle like concat("%", #{subtitle}, "%")
+      </if>
+    </where>
+    order by #{sort} #{order}
+  </select>
+
+  <select id="selectTopicLastone" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_topic
+    order by id
+    limit 1
+  </select>
+
+
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
@@ -44,7 +70,7 @@
       )
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL}, #{readCount,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, 
-      #{sortOrder,jdbcType=INTEGER}, #{goods,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{sortOrder,jdbcType=INTEGER}, #{goods,jdbcType=VARCHAR,typeHandler=com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler}, #{addTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -111,7 +137,7 @@
         #{sortOrder,jdbcType=INTEGER},
       </if>
       <if test="goods != null">
-        #{goods,jdbcType=VARCHAR},
+        #{goods,jdbcType=VARCHAR,typeHandler=com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler},
       </if>
       <if test="addTime != null">
         #{addTime,jdbcType=TIMESTAMP},
@@ -149,7 +175,7 @@
         sort_order = #{sortOrder,jdbcType=INTEGER},
       </if>
       <if test="goods != null">
-        goods = #{goods,jdbcType=VARCHAR},
+        goods = #{goods,jdbcType=VARCHAR,typeHandler=com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler},
       </if>
       <if test="addTime != null">
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -174,7 +200,7 @@
       read_count = #{readCount,jdbcType=VARCHAR},
       pic_url = #{picUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=INTEGER},
-      goods = #{goods,jdbcType=VARCHAR},
+      goods = #{goods,jdbcType=VARCHAR,typeHandler=com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=BIT},
@@ -189,7 +215,7 @@
       read_count = #{readCount,jdbcType=VARCHAR},
       pic_url = #{picUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=INTEGER},
-      goods = #{goods,jdbcType=VARCHAR},
+      goods = #{goods,jdbcType=VARCHAR,typeHandler=com.xkazxx.springboot.springbootproject.typeHandler.MyTypeHandler},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=BIT}

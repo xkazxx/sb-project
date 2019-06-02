@@ -13,7 +13,7 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, key, name, type, size, url, add_time, update_time, deleted
+    id, `key`, name, `type`, `size`, url, add_time, update_time, deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -57,16 +57,16 @@
         id,
       </if>
       <if test="key != null">
-        key,
+        `key`,
       </if>
       <if test="name != null">
         name,
       </if>
       <if test="type != null">
-        type,
+        `type`,
       </if>
       <if test="size != null">
-        size,
+        `size`,
       </if>
       <if test="url != null">
         url,

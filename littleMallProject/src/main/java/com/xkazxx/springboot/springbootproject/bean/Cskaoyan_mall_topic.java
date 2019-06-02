@@ -6,19 +6,19 @@ import java.util.Date;
 public class Cskaoyan_mall_topic {
     private Integer id;
 
-    private String title;
+    private String title;//
 
-    private String subtitle;
+    private String subtitle;//
 
-    private BigDecimal price;
+    private BigDecimal price;//
 
-    private String readCount;
+    private String readCount;//
 
-    private String picUrl;
+    private String picUrl;//
 
     private Integer sortOrder;
 
-    private String goods;
+    private String[] goods;//
 
     private Date addTime;
 
@@ -26,7 +26,7 @@ public class Cskaoyan_mall_topic {
 
     private Boolean deleted;
 
-    private String content;
+    private String content;//
 
     public Integer getId() {
         return id;
@@ -84,12 +84,12 @@ public class Cskaoyan_mall_topic {
         this.sortOrder = sortOrder;
     }
 
-    public String getGoods() {
+    public String[] getGoods() {
         return goods;
     }
 
-    public void setGoods(String goods) {
-        this.goods = goods == null ? null : goods.trim();
+    public void setGoods(String[] goods) {
+        this.goods = goods;
     }
 
     public Date getAddTime() {
