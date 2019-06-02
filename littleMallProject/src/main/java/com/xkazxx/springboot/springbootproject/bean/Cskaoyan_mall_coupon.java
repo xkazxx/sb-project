@@ -1,42 +1,46 @@
 package com.xkazxx.springboot.springbootproject.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Cskaoyan_mall_coupon {
     private Integer id;
 
-    private String name;
+    private String name;//1
 
-    private String desc;
+    private String desc;//1
 
-    private String tag;
+    private String tag;//1
 
-    private Integer total;
+    private Integer total;//1
 
-    private BigDecimal discount;
+    private BigDecimal discount;//01
 
-    private BigDecimal min;
+    private BigDecimal min;//1
 
-    private Short limit;
+    private Short limit;//11
 
-    private Short type;
+    private Short type;//0
 
-    private Short status;
+    private Short status;//1
 
-    private Short goodsType;
+    private Short goodsType;//0
 
-    private String goodsValue;
+    private String[] goodsValue;//null
 
     private String code;
 
-    private Short timeType;
+    private Short timeType;//0
 
-    private Short days;
+    private Short days;//2
 
-    private Date startTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startTime;//null
 
-    private Date endTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;//null
 
     private Date addTime;
 
@@ -132,12 +136,12 @@ public class Cskaoyan_mall_coupon {
         this.goodsType = goodsType;
     }
 
-    public String getGoodsValue() {
+    public String[] getGoodsValue() {
         return goodsValue;
     }
 
-    public void setGoodsValue(String goodsValue) {
-        this.goodsValue = goodsValue == null ? null : goodsValue.trim();
+    public void setGoodsValue(String[] goodsValue) {
+        this.goodsValue = goodsValue;
     }
 
     public String getCode() {

@@ -12,8 +12,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-/*
-@Component
+
+/*@Component
 public class MyShiroRealm extends AuthorizingRealm {
     @Autowired
     UserService userService;
@@ -30,7 +30,6 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return null;
     }
-
 
     public void clearCache() {
         PrincipalCollection principals = SecurityUtils.getSubject().getPrincipals();

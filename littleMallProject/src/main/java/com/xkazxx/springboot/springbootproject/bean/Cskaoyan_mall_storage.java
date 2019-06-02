@@ -1,7 +1,10 @@
 package com.xkazxx.springboot.springbootproject.bean;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
+@Component
 public class Cskaoyan_mall_storage {
     private Integer id;
 

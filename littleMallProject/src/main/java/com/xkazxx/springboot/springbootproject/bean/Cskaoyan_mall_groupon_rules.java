@@ -1,26 +1,29 @@
 package com.xkazxx.springboot.springbootproject.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Cskaoyan_mall_groupon_rules {
     private Integer id;
 
-    private Integer goodsId;
+    private Integer goodsId;//
 
     private String goodsName;
 
     private String picUrl;
 
-    private BigDecimal discount;
+    private BigDecimal discount;//
 
-    private Integer discountMember;
+    private Integer discountMember;//
 
     private Date addTime;
 
     private Date updateTime;
 
-    private Date expireTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date expireTime;//
 
     private Boolean deleted;
 

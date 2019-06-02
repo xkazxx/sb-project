@@ -18,6 +18,19 @@
     id, order_id, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time, 
     share_url, payed, deleted
   </sql>
+
+  <!--<select id="getGroupononList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon
+    <where>
+      <if test="goodId != null">
+        goodId
+      </if>
+    </where>
+  </select>
+-->
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
