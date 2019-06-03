@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.xkazxx.springboot.springbootproject.mapper")
-@EnableWebMvc
 public class SpringbootprojectApplication {
 
     public static void main(String[] args) {

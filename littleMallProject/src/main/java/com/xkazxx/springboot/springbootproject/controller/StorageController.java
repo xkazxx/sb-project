@@ -2,7 +2,7 @@ package com.xkazxx.springboot.springbootproject.controller;
 
 import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_storage;
 import com.xkazxx.springboot.springbootproject.service.StorageService;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @RestController
 public class StorageController {
@@ -54,7 +55,7 @@ public class StorageController {
         try {
             allBytes = Files.readAllBytes(file.toPath());
         } catch (IOException e) {
-            Logger.getLogger(this.getClass()).info(e.getMessage());
+           // Logger.getLogger(this.getClass()).info(e.getMessage());
         }
         return allBytes;
     }

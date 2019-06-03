@@ -26,5 +26,7 @@ public interface Cskaoyan_mall_adminMapper {
     List<Cskaoyan_mall_admin> selectAdminByAdminName(@Param("name") String searchValue,
                                                      @Param("pageNum") int pageNum,
                                                      @Param("pageSize") int pageSize);
+ /*   List<Cskaoyan_mall_admin> select(@Param("username") String username);*/
     int insertStorage(Cskaoyan_mall_storage record);
+
 }
