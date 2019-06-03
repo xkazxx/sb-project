@@ -20,13 +20,13 @@ public class SystemLogController {
     @RequestMapping("/log/list")
     @ResponseBody
     public List<Cskaoyan_mall_log> findAllLogByPage(@RequestParam int page,
-                                                    @RequestParam int items){
-        return systemLogService.findAllLogByPage(page,items);
+                                                    @RequestParam int limit){
+        return systemLogService.findAllLogByPage(page,limit);
     }
 
     @RequestMapping("/log/list2")
     @ResponseBody
-    public QueryVO selectLogByAdmin(String searchValue, int page, int items){
-        return systemLogService.selectLogByAdmin(searchValue,page,items);
+    public QueryVO selectLogByAdmin(String searchValue, int page, int limit){
+        return systemLogService.selectLogByAdmin(searchValue,page,limit);
     }
 }

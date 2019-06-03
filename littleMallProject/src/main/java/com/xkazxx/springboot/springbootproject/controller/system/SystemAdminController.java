@@ -22,13 +22,13 @@ public class SystemAdminController {
     @RequestMapping("/admin/list")
     @ResponseBody
     public List<Cskaoyan_mall_admin> findAllAdminByPage(@RequestParam int page,
-                                                        @RequestParam int items){
-        return systemAdminService.findAllAdminByPage(page,items);
+                                                        @RequestParam int limit){
+        return systemAdminService.findAllAdminByPage(page,limit);
     }
     @RequestMapping("/admin/list2")
     @ResponseBody
-    public QueryVO findAdminByAdminName(String searchValue, int page, int items){
-        return systemAdminService.findAdminByAdminName(searchValue,page,items);
+    public QueryVO findAdminByAdminName(String searchValue, int page, int limit){
+        return systemAdminService.findAdminByAdminName(searchValue,page,limit);
     }
     @RequestMapping("/admin/create")
     @ResponseBody

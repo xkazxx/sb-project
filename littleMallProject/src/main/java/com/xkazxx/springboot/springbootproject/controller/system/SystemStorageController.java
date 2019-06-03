@@ -24,18 +24,18 @@ public class SystemStorageController {
     @RequestMapping("/storage/list")
     @ResponseBody
     public List<Cskaoyan_mall_storage> findAllStorage(@RequestParam int page,
-                                                      @RequestParam int items){
-        return systemStorageService.findAllStorageByPage(page,items);
+                                                      @RequestParam int limit){
+        return systemStorageService.findAllStorageByPage(page,limit);
     }
     @RequestMapping("/storage/list2")
     @ResponseBody
-    public QueryVO findStorageByKey(String searchValue, int page, int items){
-        return systemStorageService.findStorageByKey(searchValue,page,items);
+    public QueryVO findStorageByKey(String searchValue, int page, int limit){
+        return systemStorageService.findStorageByKey(searchValue,page,limit);
     }
     @RequestMapping("/storage/list3")
     @ResponseBody
-    public QueryVO findStorageByName(String searchValue, int page, int items){
-        return systemStorageService.findStorageByName(searchValue,page,items);
+    public QueryVO findStorageByName(String searchValue, int page, int limit){
+        return systemStorageService.findStorageByName(searchValue,page,limit);
     }
     @RequestMapping("/storage/create2")
     @ResponseBody

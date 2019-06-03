@@ -26,8 +26,8 @@ public class SystemRoleController {
     }
     @RequestMapping("/role/list2")
     @ResponseBody
-    public QueryVO findRoleByRoleName(String searchValue, int page, int items){
-        return systemRollService.findRoleByRoleName(searchValue,page, items);
+    public QueryVO findRoleByRoleName(String searchValue, int page, int limit){
+        return systemRollService.findRoleByRoleName(searchValue,page, limit);
     }
     @RequestMapping("/role/create")
     @ResponseBody
