@@ -1,0 +1,19 @@
+server:
+  servlet:
+    context-path: /admin
+  port: 80
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/littlemall?serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 147963
+    type: com.alibaba.druid.pool.DruidDataSource
+  pagehelper:
+    dialect: com.github.pagehelper.dialect.helper.MySqlDialect
+    offsetAsPageNum: true
+    rowBoundsWithCount: true
+    returnPageInfo: true
+    reasonable: true
+    supportMethodsArguments: true

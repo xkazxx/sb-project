@@ -18,28 +18,28 @@ public class SystemRoleController {
     @Autowired
     SystemRoleService systemRollService;
 
-    @RequestMapping("/admin/role/list")
+    @RequestMapping("role/list")
     @ResponseBody
     public List<Cskaoyan_mall_role> findAllRoleByPage(@RequestParam("page") int page,
                                                       @RequestParam("items") int items){
         return systemRollService.findAllRoleByPage(page,items);
     }
-    @RequestMapping("/admin/role/list")
+    @RequestMapping("/role/list2")
     @ResponseBody
     public QueryVO findRoleByRoleName(String searchValue, int page, int items){
         return systemRollService.findRoleByRoleName(searchValue,page, items);
     }
-    @RequestMapping("/admin/role/create")
+    @RequestMapping("/role/create")
     @ResponseBody
     public int insert(Cskaoyan_mall_role cskaoyanMallRole){
         return systemRollService.insertRole(cskaoyanMallRole);
     }
-    @RequestMapping("/admin/role/update")
+    @RequestMapping("/role/update")
     @ResponseBody
     public int update(Cskaoyan_mall_role cskaoyanMallRole){
         return systemRollService.updateRoleByRoleId(cskaoyanMallRole);
     }
-    @RequestMapping("/admin/role/delete")
+    @RequestMapping("/role/delete")
     @ResponseBody
     public int delete(String[] ids){
         return systemRollService.deleteRoleByRoleId(ids);
@@ -47,7 +47,7 @@ public class SystemRoleController {
     /*
     授权---有点难
     */
-    @RequestMapping("/admin/role/permissions")
+    @RequestMapping("/role/permissions")
     @ResponseBody
     public void givePermissionsById(Cskaoyan_mall_role cskaoyanMallRole){
         return ;

@@ -17,15 +17,14 @@ public class SystemLogController {
     @Autowired
     SystemLogService systemLogService;
 
-    @RequestMapping("/admin/log/list")
+    @RequestMapping("/log/list")
     @ResponseBody
     public List<Cskaoyan_mall_log> findAllLogByPage(@RequestParam int page,
                                                     @RequestParam int items){
-
         return systemLogService.findAllLogByPage(page,items);
     }
 
-    @RequestMapping("/admin/log/list")
+    @RequestMapping("/log/list2")
     @ResponseBody
     public QueryVO selectLogByAdmin(String searchValue, int page, int items){
         return systemLogService.selectLogByAdmin(searchValue,page,items);

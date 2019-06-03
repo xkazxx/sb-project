@@ -96,11 +96,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public Cskaoyan_mall_admin getAdminByAdminname(String username) {
-        Cskaoyan_mall_admin adminByAdminname = cskaoyanMallAdminMapper.getAdminByAdminname(username);
-        return adminByAdminname;
-    }
+
 
     public Map getResultMap(PageInfo pageInfo){
         Map map = new HashMap();
