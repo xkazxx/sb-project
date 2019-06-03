@@ -88,12 +88,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map getFeedbackList(Integer page, Integer limit, Integer id, String username) {
-
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_feedback> pageInfo =
                 new PageInfo<>(cskaoyanMallFeedbackMapper.getFeedbackList(page,limit,id,username));
         return getResultMap(pageInfo);
-
     }
 
 

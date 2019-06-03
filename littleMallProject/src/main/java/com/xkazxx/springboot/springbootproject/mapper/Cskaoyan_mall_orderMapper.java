@@ -14,4 +14,10 @@ public interface Cskaoyan_mall_orderMapper {
     int updateByPrimaryKeySelective(Cskaoyan_mall_order record);
 
     int updateByPrimaryKey(Cskaoyan_mall_order record);
+
+    int selectOrderByOrderId();
+
+    int selectOrderUserByUserId();
+
+    long countOrderAmount();
 }

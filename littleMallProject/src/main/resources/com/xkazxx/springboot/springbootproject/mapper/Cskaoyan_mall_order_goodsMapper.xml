@@ -196,4 +196,11 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询下单货品数量(已验证)-->
+  <select id="countTotalGoods"  resultType="java.lang.Integer">
+    select sum(number) from cskaoyan_mall_order_goods where to_days(now()) - to_days(add_time) = 0;
+  </select>
+
+
 </mapper>

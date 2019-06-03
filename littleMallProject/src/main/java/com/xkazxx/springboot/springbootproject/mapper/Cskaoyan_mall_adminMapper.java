@@ -1,6 +1,7 @@
 package com.xkazxx.springboot.springbootproject.mapper;
 
 import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_admin;
+
 import com.xkazxx.springboot.springbootproject.bean.Cskaoyan_mall_storage;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,6 +19,7 @@ public interface Cskaoyan_mall_adminMapper {
     int updateByPrimaryKeySelective(Cskaoyan_mall_admin record);
 
     int updateByPrimaryKey(Cskaoyan_mall_admin record);
+
     //自己增加的
     List<Cskaoyan_mall_admin> selectAll(@Param("pageNum") int pageNum,
                                         @Param("pageSize") int pageSize);

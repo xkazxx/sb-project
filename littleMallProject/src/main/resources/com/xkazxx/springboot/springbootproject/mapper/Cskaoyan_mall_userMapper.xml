@@ -250,4 +250,10 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <!--根据注册时间（年月日相同）计算用户数量(用户统计页面)-->
+  <select id="countUserByAddDate"  resultType="java.lang.Integer">
+     select count(username) from cskaoyan_mall_user where to_days(now()) - to_days(add_time) = 0;
+  </select>
 </mapper>
