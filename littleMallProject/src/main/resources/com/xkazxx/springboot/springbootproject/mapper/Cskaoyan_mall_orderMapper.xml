@@ -338,4 +338,23 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <!--根据订单id查询日订单量(已验证)-->
+  <select id="selectOrderByOrderId"  resultType="java.lang.Integer">
+    select count(id) from cskaoyan_mall_order where to_days(now()) - to_days(add_time) = 0;
+  </select>
+
+  <!--根据用户id查询日用户量(待完善)-->
+  <select id="selectOrderUserByUserId"  resultType="java.lang.Integer">
+    select distinct count(user_id) from cskaoyan_mall_order where to_days(now()) = to_days(add_time);
+  </select>
+
+  <!--计算订单的总价(已验证)-->
+  <select id="countOrderAmount"  resultType="java.lang.Long">
+    select sum(order_price) from cskaoyan_mall_order where to_days(now()) - to_days(add_time) = 0;
+  </select>
+  <!--计算客单价（平均每个顾客的订单金额,直接在service层写）-->
+
+  <!--计算下单货品总额(等同于订单总价)-->
 </mapper>

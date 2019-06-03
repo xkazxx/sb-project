@@ -23,4 +23,8 @@ public interface Cskaoyan_mall_userMapper {
 
     List<Cskaoyan_mall_user> getUserList(@Param("page") Integer page, @Param("limit") Integer limit,
                                          @Param("username") String username, @Param("mobile") String mobile);
+
+
+    int countUserByAddDate();
+
 }
