@@ -88,19 +88,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map getFeedbackList(Integer page, Integer limit, Integer id, String username) {
-
         PageHelper.startPage(page,limit);
         PageInfo<Cskaoyan_mall_feedback> pageInfo =
                 new PageInfo<>(cskaoyanMallFeedbackMapper.getFeedbackList(page,limit,id,username));
         return getResultMap(pageInfo);
-
     }
 
-    @Override
-    public Cskaoyan_mall_admin getAdminByAdminname(String username) {
-        Cskaoyan_mall_admin adminByAdminname = cskaoyanMallAdminMapper.getAdminByAdminname(username);
-        return adminByAdminname;
-    }
+
 
     public Map getResultMap(PageInfo pageInfo){
         Map map = new HashMap();
